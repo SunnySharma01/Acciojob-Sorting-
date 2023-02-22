@@ -1,0 +1,43 @@
+import java.util.*;
+ 
+ 
+public class Main {
+    public static void main(String[] args) throws Throwable {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        for(int i=0;i<n;++i){
+            arr[i] = sc.nextInt();
+        }
+        int[] ans=Sorting021(n,arr);
+        for(int i=0;i<n;++i){
+            System.out.print(ans[i] + " ");
+        }
+    }
+ 
+	static int[] Sorting021(int n,int[] arr){
+        // Write your code here
+		int[] ans = new int[n];
+		int ctx=0;
+		for(int i=0;i<n;i++){
+			if(arr[i]==0){
+			ans[ctx]=arr[i];
+				ctx++;
+			}
+		}
+ 
+		for(int i=0;i<n;i++){
+			if(arr[i]==2){
+			ans[ctx]=arr[i];
+				ctx++;
+			}
+		}
+		for(int i=0;i<n;i++){
+			if(arr[i]==1){
+			ans[ctx]=arr[i];
+				ctx++;
+			}
+		}
+			 return ans;
+    }
+}
