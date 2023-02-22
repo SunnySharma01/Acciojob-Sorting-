@@ -1,0 +1,52 @@
+import java.io.*;
+import java.util.*;
+ 
+class Main{
+ 
+    static boolean solve(int arr[],int N){
+ 
+		// To copy array
+		int []b = arr.clone();
+		// 	new int [N];
+		// for(int i=0;i<N;i++)
+		// 	b[i]=arr[i];
+		
+		Arrays.sort(b);
+		
+		int c=0; 
+		int ind=0;
+		
+		for(int i=0;i<N;i++){
+			if(arr[i] != b[i]){
+				c++;
+				if(c>1)
+					return false;
+				int val = b[i];
+				for(int j=i+1;j<N;j++){
+					if(arr[j] == val){
+						ind = j;
+						break;
+					}
+				}
+				i=ind;
+			}
+		}
+		return true;
+    }
+	
+    public static void main(String args[])throws IOException{    
+        Scanner sc=new Scanner(System.in);
+        int N=sc.nextInt();
+        int arr[]=new int[N];
+ 
+        for(int i=0;i<N;i++)
+            arr[i]=sc.nextInt();
+ 
+        boolean ans=solve(arr,N);
+        
+        if(ans==true)
+            System.out.println("Yes");
+        else
+            System.out.println("No");
+    }
+}
