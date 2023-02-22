@@ -1,0 +1,43 @@
+import java.util.*;
+ 
+class Solution{
+ 
+    public static void sortCol(int[][] arr, int n, int m){
+        // Write your code and print here
+		int c = 0;
+		while(c!=m){
+			for(int i=0;i<n;i++){
+				for(int j=i+1;j<n;j++){
+					if(arr[i][c]>arr[j][c]){
+						int temp = arr[i][c];
+						arr[i][c] = arr[j][c];
+						arr[j][c] = temp;
+					}
+				}
+			}
+			c++;
+		}
+ 
+		for(int i=0;i<n;i++){
+			for(int j=0;j<m;j++){
+				System.out.print(arr[i][j]+" ");
+               }
+			System.out.println();
+          }
+    }
+}
+ 
+public class Main {
+        public static void main(String[] args) throws Throwable {
+         Scanner sc=new Scanner(System.in); 
+          int n=sc.nextInt();
+          int m=sc.nextInt();
+          int[][] mat =new int[n][m]; 
+          for(int i=0;i<n;i++) {
+            for(int j=0;j<m;j++) {
+                mat[i][j] = sc.nextInt();
+            }
+          } 
+          Solution.sortCol(mat, n, m);
+        }
+}
