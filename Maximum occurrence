@@ -1,0 +1,36 @@
+import java.util.*;
+ 
+public class Main {
+    static int maximum_occurrence(int arr[], int n) {
+ 
+		Arrays.sort(arr);
+ 
+		int max = 0;
+		int maxEle = 0;
+ 
+		for(int i=0;i<n-1;i++){
+			int count = 0;
+			while(i<(n-1) && arr[i]==arr[i+1]){
+				count++;
+				i++;
+			}
+			if(count>max){
+				max = count;
+				maxEle = arr[i];
+			}
+		}
+		return maxEle;
+         
+    }
+    public static void main(String args[]) {
+        int n;
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        System.out.print(maximum_occurrence(arr, n));
+ 
+    }
+}
