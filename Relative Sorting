@@ -1,0 +1,62 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+ 
+ 
+public class Main {
+static void relativeSorting(int arr1[], int n, int arr2[], int m)
+	{
+       // Write your code here, print output
+		ArrayList<Integer> ar = new ArrayList<>();
+        ArrayList<Integer>pr=new ArrayList<>();
+ 
+        for(int i=0;i<m;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                if(arr2[i]==arr1[j])
+                {
+                    ar.add(arr2[i]);
+                }
+ 
+            }
+        }
+        Arrays.sort(arr1);
+        for(int i=0;i<n;i++)
+        {
+            int count=0;
+            for(int j=0;j<ar.size();j++)
+            {
+                if(arr1[i]==ar.get(j))
+                {
+                  count++;
+                }
+            }
+            if(count==0)
+            {
+                pr.add(arr1[i]);
+            }
+        }
+        ar.addAll(pr);
+		  for(int i=0;i<ar.size();i++)
+      {
+          System.out.print(ar.get(i)+" ");
+      }
+	}
+	
+    public static void main(String[] args) throws Throwable {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        int arr1[]=new int[n] ;
+        int arr2[]=new int[m] ;
+        for(int i=0;i<n;i++){
+           arr1[i]=sc.nextInt();
+        }
+        for(int i=0;i<m;i++){
+           arr2[i]=sc.nextInt();
+        }
+        relativeSorting(arr1, n, arr2 , m);
+}
+}
+
